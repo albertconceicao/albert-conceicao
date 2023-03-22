@@ -4,7 +4,7 @@ import { Container, TextContainer, InfosContainer, CodeItem } from './styles';
 
 export function HomeHero() {
   return (
-    <Container>
+    <Container data-aos="fade-up">
       {/* <img src={Picture} alt="" /> */}
       <div>
         <TextContainer>
@@ -12,7 +12,7 @@ export function HomeHero() {
           <h2>Me chamo Albert</h2>
         </TextContainer>
         <InfosContainer>
-          <CodeItem>
+          <CodeItem data-aos="zoom-in">
             <span className="comment">//Minha apresentação</span>
             <span className="purple">Infos </span>
             {'\u007B'}
@@ -24,7 +24,7 @@ export function HomeHero() {
             </div>
             {'\u007D'}
           </CodeItem>
-          <CodeItem>
+          <CodeItem data-aos="zoom-in">
             <span className="purple">Trabalho atual </span>
             {'\u007B'}
             <div>

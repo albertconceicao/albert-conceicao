@@ -71,7 +71,6 @@ export const getStaticProps: GetStaticProps = async context => {
   const { slug } = context.params;
 
   const response = await prismic.getByUID('projects', String(slug), {});
-  console.log(response);
 
   const project = {
     slug: response.uid,
