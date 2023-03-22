@@ -7,10 +7,17 @@ import { Container } from './styles';
 
 export function Footer() {
   const handleRedirect = (url: string) => window.open(url);
+  const handleScrollTop = () =>
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
   return (
     <Container>
       <div className="container">
-        <button type="button">Voltar ao topo</button>
+        <button type="button" onClick={handleScrollTop}>
+          Voltar ao topo
+        </button>
         <section>
           <AiOutlineTwitter
             onClick={() => handleRedirect('https://twitter.com')}
