@@ -1,34 +1,98 @@
+import { GetStaticPaths, GetStaticProps } from 'next';
+import Prismic from '@prismicio/client';
+import { useRouter } from 'next/router';
 import { Header } from '../../../components/Header';
 import { ProjectBanner } from '../../../components/ProjectBanner';
+import { getPrismicClient } from '../../../services/prismic';
 import { ProjectContainer } from '../../../styles/ProjectStyle';
+import { LoadingScreen } from '../../../components/LoadingScreen';
 
-export default function Project() {
+interface IProject {
+  slug: string;
+  title: string;
+  type: string;
+  description: string;
+  link: string;
+  thumbnail: string;
+}
+
+interface ProjectProps {
+  project: IProject;
+}
+
+export default function Project({ project }: ProjectProps) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <LoadingScreen />;
+  }
   return (
     <ProjectContainer>
       <Header />
       <ProjectBanner
-        title="Projeto 01"
-        type="website"
-        imgUrl="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        title={project.title}
+        type={project.type}
+        imgUrl={project.thumbnail}
       />
 
       <main>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam
-          incidunt asperiores quidem deserunt pariatur. Doloremque, vel
-          praesentium explicabo sit ex illum eaque cum delectus id veritatis
-          quasi maiores aspernatur saepe quis ullam asperiores suscipit quia sed
-          accusantium blanditiis a expedita quidem fugiat. Recusandae quidem
-          pariatur voluptatem? Veritatis, non hic facilis ducimus possimus est
-          illum, ex quos, reiciendis inventore totam deserunt blanditiis. Aut,
-          eveniet dolores. Sapiente rerum commodi est iusto, quas magni tempore
-          voluptatibus nihil placeat, praesentium excepturi, pariatur magnam ab!
-        </p>
+        <p>{project.description}</p>
 
         <button type="button">
-          <a href="/">Ver projeto online</a>
+          <a href={project.link} target="_blank" rel="noreferrer">
+            Ver projeto online
+          </a>
         </button>
       </main>
     </ProjectContainer>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const prismic = getPrismicClient();
+  const projects = await prismic.query([
+    Prismic.predicates.at('document.type', 'projects')
+  ]);
+
+  const paths = projects.results.map(project => ({
+    params: {
+      slug: project.uid
+    }
+  }));
+
+  return {
+    paths,
+    fallback: true
+  };
+};
+
+export const getStaticProps: GetStaticProps = async context => {
+  const prismic = getPrismicClient();
+  const { slug } = context.params;
+
+  const response = await prismic.getByUID('projects', String(slug), {});
+  console.log(response);
+
+  const project = {
+    slug: response.uid,
+    title: response.data.title,
+    type: response.type,
+    description: response.data.description,
+    thumbnail: response.data.thumbnail.url,
+    link: response.data.live_project.url
+  };
+  // const projects = projectResponse.results.map(project => ({
+  //   slug: project.uid,
+  //   title: project.data.title,
+  //   type: project.type,
+  //   description: project.data.description,
+  //   link: project.data.live_project.url,
+  //   thumbnail: project.data.thumbnail.url
+  // }));
+  return {
+    props: {
+      project
+    },
+    revalidate: 86400
+  };
+};
