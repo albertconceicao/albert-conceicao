@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const mailer = ({ senderMail, name, text }) => {
+const mailer = async ({ senderMail, name, text }) => {
   const from = `${email}`;
   const mailList = [email];
   const message = {
@@ -37,11 +37,12 @@ const mailer = ({ senderMail, name, text }) => {
     replyTo: senderMail
   };
 
-  return new Promise((resolve, reject) => {
-    transporter.sendMail(message, (error, info) =>
-      error ? reject(error) : resolve(info)
-    );
-  });
+  await transporter.sendMail(message);
+  // , (error, info) =>
+  // return new Promise(async (resolve, reject) => {
+  //     error ? reject(error) : resolve(info)
+  //   );
+  // });
 };
 
 export default async (req, res) => {
