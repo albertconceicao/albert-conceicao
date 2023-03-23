@@ -9,7 +9,7 @@ export const sendContactMail = async (name, senderMail, content) => {
 
   try {
     const res = await axios.post(
-      'https://developer-albert.vercel.app/api/contact',
+      'https://main--super-arithmetic-4cd359.netlify.app/api/contact',
       data,
       { timeout: 20000 }
     );
