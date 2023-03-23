@@ -20,7 +20,7 @@
     "next": "13.2.4",
     "next-images": "^1.8.4",
     "nextjs-progressbar": "^0.0.16",
-    "nodemailer": "6.6.5",
+    "nodemailer": "^6.9.1",
     "polished": "^4.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
