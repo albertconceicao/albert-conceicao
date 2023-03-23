@@ -9,7 +9,7 @@ export const sendContactMail = async (name, senderMail, content) => {
 
   try {
     const res = await axios.post(
-      'https://ubiquitous-bienenstitch-b45864/api/contact',
+      'https://main--ubiquitous-bienenstitch-b45864.netlify.app/api/contact',
       data
     );
     return res;
