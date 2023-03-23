@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import cors from 'cors';
 
 const email = process.env.MAIL_ADDRESS;
 const emailPass = process.env.MAIL_PASSWORD;
@@ -45,12 +46,14 @@ const mailer = ({ senderMail, name, text }) => {
 };
 
 export default async (req, res) => {
-  const { senderMail, name, content } = req.body;
+  cors()(req, res, async () => {
+    const { senderMail, name, content } = req.body;
 
-  if (senderMail === '' || name === '' || content === '') {
-    res.status(403).send();
-    return;
-  }
-  const mailerRes = await mailer({ senderMail, name, text: content });
-  res.send(mailerRes);
+    if (senderMail === '' || name === '' || content === '') {
+      res.status(403).send();
+      return;
+    }
+    const mailerRes = await mailer({ senderMail, name, text: content });
+    res.send(mailerRes);
+  });
 };
