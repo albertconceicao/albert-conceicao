@@ -9,7 +9,7 @@ export function Experiences() {
 
       <section>
         <ExperienceItem
-          year="2021"
+          year="2020"
           title="Front End Developer"
           description="Lorem iupus dot samet."
         />
@@ -19,12 +19,12 @@ export function Experiences() {
           description="Lorem iupus dot samet."
         />
         <ExperienceItem
-          year="2021"
+          year="2022"
           title="Front End Developer"
           description="Lorem iupus dot samet."
         />
         <ExperienceItem
-          year="2021"
+          year="2023"
           title="Front End Developer"
           description="Lorem iupus dot samet."
         />
