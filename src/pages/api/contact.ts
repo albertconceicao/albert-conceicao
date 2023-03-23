@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 
-const email = process.env.MAIL_ADDRESS;
-const emailPass = process.env.MAIL_PASSWORD;
+const email = process.env.MAILADDRESS;
+const emailPass = process.env.MAILPASS;
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.office365.com',
