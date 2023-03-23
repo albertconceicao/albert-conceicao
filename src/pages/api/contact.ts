@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 
-const email = process.env.MAILADDRESS;
-const emailPass = process.env.MAILPASS;
+const email = process.env.MAIL_ADDRESS;
+const emailPass = process.env.MAIL_PASSWORD;
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.office365.com',
@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const mailer = async ({ senderMail, name, text }) => {
+const mailer = ({ senderMail, name, text }) => {
   const from = `${email}`;
   const mailList = [email];
   const message = {
@@ -37,24 +37,20 @@ const mailer = async ({ senderMail, name, text }) => {
     replyTo: senderMail
   };
 
-  await transporter.sendMail(message);
-  // , (error, info) =>
-  // return new Promise((resolve, reject) => {
-  //     error ? reject(error) : resolve(info)
-  //   );
-  // });
+  return new Promise((resolve, reject) => {
+    transporter.sendMail(message, (error, info) =>
+      error ? reject(error) : resolve(info)
+    );
+  });
 };
 
-export default async (req: any, res: any) => {
+export default async (req, res) => {
   const { senderMail, name, content } = req.body;
 
-  try {
-    const mailerRes = await mailer({ senderMail, name, text: content });
-    res.send(mailerRes);
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .send({ error: 'An error occurred while sending the email' });
+  if (senderMail === '' || name === '' || content === '') {
+    res.status(403).send();
+    return;
   }
+  const mailerRes = await mailer({ senderMail, name, text: content });
+  res.send(mailerRes);
 };
