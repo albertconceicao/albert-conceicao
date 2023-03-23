@@ -1,8 +1,8 @@
 import nodemailer from 'nodemailer';
 import cors from 'cors';
 
-const email = process.env.MAIL_ADDRESS;
-const emailPass = process.env.MAIL_PASSWORD;
+const email = process.env.MAILADDRESS;
+const emailPass = process.env.MAILPASSWORD;
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.office365.com',
