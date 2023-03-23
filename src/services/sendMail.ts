@@ -8,7 +8,8 @@ export const sendContactMail = async (name, senderMail, content) => {
   };
 
   try {
-    return await axios.post('/api/contact', data);
+    const res = await axios.post('/api/contact', data);
+    return res;
   } catch (error) {
     return error;
   }
