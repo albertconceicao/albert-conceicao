@@ -11,7 +11,7 @@ export const sendContactMail = async (name, senderMail, content) => {
     const res = await axios.post('/api/contact', data);
     return res;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return error;
   }
 };
