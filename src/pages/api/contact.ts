@@ -37,11 +37,12 @@ const mailer = async ({ senderMail, name, text }) => {
     replyTo: senderMail
   };
 
-  return new Promise((resolve, reject) => {
-    transporter.sendMail(message, (error, info) =>
-      error ? reject(error) : resolve(info)
-    );
-  });
+  await transporter.sendMail(message);
+  // , (error, info) =>
+  // return new Promise((resolve, reject) => {
+  //     error ? reject(error) : resolve(info)
+  //   );
+  // });
 };
 
 export default async (req: any, res: any) => {
