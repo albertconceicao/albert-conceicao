@@ -8,7 +8,7 @@ export const sendContactMail = async (name, senderMail, content) => {
   };
 
   try {
-    const res = await axios.post('/api/contact', data, { timeout: 10000 });
+    const res = await axios.post('/api/contact', data, { timeout: 20000 });
     return res;
   } catch (error) {
     console.error(error);
