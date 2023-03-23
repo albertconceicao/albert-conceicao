@@ -47,6 +47,13 @@ const mailer = async ({ senderMail, name, text }) => {
 export default async (req: any, res: any) => {
   const { senderMail, name, content } = req.body;
 
-  const mailerRes = await mailer({ senderMail, name, text: content });
-  res.send(mailerRes);
+  try {
+    const mailerRes = await mailer({ senderMail, name, text: content });
+    res.send(mailerRes);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .send({ error: 'An error occurred while sending the email' });
+  }
 };
