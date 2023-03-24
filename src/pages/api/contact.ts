@@ -14,7 +14,13 @@ const transporter = nodemailer.createTransport({
     pass: emailPass
   }
 });
-
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Server is ready to take our messages', success);
+  }
+});
 const mailer = ({ senderMail, name, text }) => {
   const from = `${email}`;
   const mailList = [email];
