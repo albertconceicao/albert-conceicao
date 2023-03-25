@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-// import { sendContactMail } from '../../services/sendMail';
 import theme from '../../styles/theme';
 import { FormContainer, Input, TextArea } from './styles';
 
@@ -14,6 +13,15 @@ export function Form() {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    if (!name || !email.includes('@') || !message) {
+      toast('Preencha todos os campos para enviar sua mensagem', {
+        style: {
+          background: theme.error,
+          color: '#fff'
+        }
+      });
+      return;
+    }
     axios.defaults.headers.post['Content-Type'] = 'application/json';
     await axios
       .post('https://formsubmit.co/ajax/developer.albert@outlook.com', {
@@ -24,7 +32,6 @@ export function Form() {
         _template: 'box'
       })
       .then(response => {
-        console.log(response);
         setName('');
         setEmail('');
         setMessage('');
@@ -34,47 +41,27 @@ export function Form() {
             color: '#fff'
           }
         });
+        return response;
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        toast(
+          'Ocorreu um erro ao tentar enviar sua mensagem. Tente novamente!',
+          {
+            style: {
+              background: theme.error,
+              color: '#fff'
+            }
+          }
+        );
+        return error;
+      });
   };
 
-  // const handleSubmit = async event => {
-  //   event.preventDefault();
-  //   if (!name || !email.includes('@') || !message) {
-  //     toast('Preencha todos os campos para enviar sua mensagem', {
-  //       style: {
-  //         background: theme.error,
-  //         color: '#fff'
-  //       }
-  //     });
-  //     return;
-  //   }
-  //   try {
-  //     await sendContactMail(name, email, message);
-  //     setName('');
-  //     setEmail('');
-  //     setMessage('');
-  //     toast('Email enviado com sucesso', {
-  //       style: {
-  //         background: theme.secondary,
-  //         color: '#fff'
-  //       }
-  //     });
-  //   } catch (error) {
-  //     toast('Ocorreu um erro ao tentar enviar sua mensagem. Tente novamente!', {
-  //       style: {
-  //         background: theme.error,
-  //         color: '#fff'
-  //       }
-  //     });
-  //   }
-  // };
   return (
     <FormContainer
       data-aos="fade-up"
       onSubmit={handleSubmit}
-      // action="https://formsubmit.co/developer.albert@outlook.com"
-      // method="POST"
       encType="multipart/form-data"
     >
       <Input
@@ -90,6 +77,7 @@ export function Form() {
         onChange={({ target }) => setEmail(target.value)}
         value={email}
         name="email"
+        required
       />
       <Input type="hidden" name="_autoresponse" value={autoResponse} />
       <TextArea
