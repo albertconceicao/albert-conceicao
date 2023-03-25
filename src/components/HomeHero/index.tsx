@@ -8,19 +8,40 @@ export function HomeHero() {
       {/* <img src={Picture} alt="" /> */}
       <div>
         <TextContainer>
-          <h1>Olá</h1>
-          <h2>Me chamo Albert</h2>
+          <h1>
+            <span>O</span>
+            <span>l</span>
+            <span>á</span>
+          </h1>
+          <h2 id="text">
+            <span>M</span>
+            <span>e</span>
+            <span> </span>
+            <span>c</span>
+            <span>h</span>
+            <span>a</span>
+            <span>m</span>
+            <span>o</span>
+            <span> </span>
+            <span>A</span>
+            <span>l</span>
+            <span>b</span>
+            <span>e</span>
+            <span>r</span>
+            <span>t</span>
+          </h2>
         </TextContainer>
+
         <InfosContainer>
           <CodeItem data-aos="zoom-in">
             <span className="comment">//Minha apresentação</span>
             <span className="purple">Infos </span>
             {'\u007B'}
             <div>
-              Nome: <span className="blue">Albert,</span>
+              Idade: <span className="blue">25,</span>
             </div>
             <div>
-              Sobrenome: <span className="blue">Conceição</span>
+              Profissão: <span className="blue">Desenvolvedor de Software</span>
             </div>
             {'\u007D'}
           </CodeItem>
