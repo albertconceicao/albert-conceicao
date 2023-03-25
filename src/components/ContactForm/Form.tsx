@@ -8,8 +8,6 @@ export function Form() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const autoResponse =
-    'Recebemos sua solicitação via formulário, retornaremos em breve!';
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -79,7 +77,6 @@ export function Form() {
         name="email"
         required
       />
-      <Input type="hidden" name="_autoresponse" value={autoResponse} />
       <TextArea
         placeholder="Mensagem"
         onChange={({ target }) => setMessage(target.value)}
