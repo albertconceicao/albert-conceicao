@@ -73,7 +73,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const projects = projectResponse.results.map(project => ({
     slug: project.uid,
     title: project.data.title,
-    type: project.type,
+    type: project.data.type,
     description: project.data.description,
     link: project.data.live_project.url,
     thumbnail: project.data.thumbnail.url

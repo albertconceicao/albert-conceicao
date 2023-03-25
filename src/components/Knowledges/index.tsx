@@ -1,6 +1,7 @@
 import { AiFillHtml5 } from 'react-icons/ai';
 import { FaCss3Alt, FaReact } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io5';
+import { TbBrandNextjs } from 'react-icons/tb';
 import { Container } from './styles';
 import { SectionTitle } from '../SectionTitle';
 import { KnowledgeItem } from './KnowledgeItem';
@@ -14,6 +15,7 @@ export function Knowledges() {
         <KnowledgeItem title="CSS" icon={<FaCss3Alt />} />
         <KnowledgeItem title="JS" icon={<IoLogoJavascript />} />
         <KnowledgeItem title="React" icon={<FaReact />} />
+        <KnowledgeItem title="Next.js" icon={<TbBrandNextjs />} />
       </section>
     </Container>
   );

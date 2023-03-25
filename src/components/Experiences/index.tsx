@@ -9,24 +9,24 @@ export function Experiences() {
 
       <section>
         <ExperienceItem
-          year="2020"
+          year="2023"
           title="Front End Developer"
-          description="Lorem iupus dot samet."
+          description="BW Events Tech"
+        />
+        <ExperienceItem
+          year="2022"
+          title="Front End Developer / Analista de Sistemas"
+          description="BW Events Tech / PCN Tecnologia"
+        />
+        <ExperienceItem
+          year="2021"
+          title="Analista de Sistemas / Front End Developer"
+          description="PCN Tecnologia"
         />
         <ExperienceItem
           year="2021"
           title="Front End Developer"
-          description="Lorem iupus dot samet."
-        />
-        <ExperienceItem
-          year="2022"
-          title="Front End Developer"
-          description="Lorem iupus dot samet."
-        />
-        <ExperienceItem
-          year="2023"
-          title="Front End Developer"
-          description="Lorem iupus dot samet."
+          description="Interstation - Freelancer"
         />
       </section>
     </Container>
