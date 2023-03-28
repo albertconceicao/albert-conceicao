@@ -1,5 +1,5 @@
 import { SectionTitle } from '../SectionTitle';
-// import { Form } from './Form';
+import { Form } from './Form';
 import { Container } from './styles';
 
 export function ContactForm() {
@@ -17,8 +17,8 @@ export function ContactForm() {
           </>
         }
       />
-      {/* <Form /> */}
-      <button
+      <Form />
+      {/* <button
         type="button"
         data-tf-popup="X45Q3xjI"
         data-tf-opacity="100"
@@ -51,7 +51,7 @@ export function ContactForm() {
       >
         Try me!
       </button>
-      <script src="//embed.typeform.com/next/embed.js" />
+      <script src="//embed.typeform.com/next/embed.js" /> */}
     </Container>
   );
 }
