@@ -13,17 +13,17 @@ export function Knowledges() {
     <Container>
       <SectionTitle title="Conhecimentos" />
       <section>
-        <KnowledgeItem title="HTML" icon={<AiFillHtml5 />} />
-        <KnowledgeItem title="CSS" icon={<FaCss3Alt />} />
-        <KnowledgeItem title="JS" icon={<IoLogoJavascript />} />
-        <KnowledgeItem title="TS" icon={<SiTypescript />} />
-        <KnowledgeItem title="JQuery" icon={<SiJquery />} />
         <KnowledgeItem title="React" icon={<FaReact />} />
         <KnowledgeItem title="Next.js" icon={<TbBrandNextjs />} />
+        <KnowledgeItem title="TS" icon={<SiTypescript />} />
+        <KnowledgeItem title="JS" icon={<IoLogoJavascript />} />
+        <KnowledgeItem title="HTML" icon={<AiFillHtml5 />} />
+        <KnowledgeItem title="CSS" icon={<FaCss3Alt />} />
+        <KnowledgeItem title="JQuery" icon={<SiJquery />} />
+        <KnowledgeItem title="SASS" icon={<SiSass />} />
         <KnowledgeItem title="Node.js" icon={<FaNodeJs />} />
         <KnowledgeItem title="MySQL" icon={<SiMysql />} />
         <KnowledgeItem title="Git" icon={<BsGit />} />
-        <KnowledgeItem title="SASS" icon={<SiSass />} />
       </section>
     </Container>
   );
