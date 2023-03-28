@@ -9,6 +9,7 @@ export const Container = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 8rem;
 
     @media (max-width: 1000px) {
