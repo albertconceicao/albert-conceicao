@@ -79,61 +79,61 @@ export const TextContainer = styled.section`
   }
 
   h1 span:nth-child(2) {
-    animation-delay: 0.4s;
+    animation-delay: 0.3s;
   }
   h1 span:nth-child(3) {
-    animation-delay: 0.6s;
+    animation-delay: 0.4s;
   }
 
   h2 span:nth-child(1) {
-    animation-delay: 0.8s;
+    animation-delay: 0.6s;
   }
 
   h2 span:nth-child(2) {
-    animation-delay: 1s;
+    animation-delay: 0.7s;
   }
   h2 span:nth-child(3) {
-    animation-delay: 1.2s;
+    animation-delay: 0.8s;
   }
   h2 span:nth-child(4) {
-    animation-delay: 1.4s;
+    animation-delay: 0.9s;
   }
 
   h2 span:nth-child(5) {
-    animation-delay: 1.6s;
+    animation-delay: 1s;
   }
   h2 span:nth-child(6) {
-    animation-delay: 1.8s;
+    animation-delay: 1.1s;
   }
   h2 span:nth-child(7) {
-    animation-delay: 2s;
+    animation-delay: 1.2s;
   }
 
   h2 span:nth-child(8) {
-    animation-delay: 2.4s;
+    animation-delay: 1.3s;
   }
   h2 span:nth-child(9) {
-    animation-delay: 2.6s;
+    animation-delay: 1.4s;
   }
 
   h2 span:nth-child(10) {
-    animation-delay: 2.8s;
+    animation-delay: 1.5s;
   }
   h2 span:nth-child(11) {
-    animation-delay: 3s;
+    animation-delay: 1.6s;
   }
   h2 span:nth-child(12) {
-    animation-delay: 3.2s;
+    animation-delay: 1.7s;
   }
 
   h2 span:nth-child(13) {
-    animation-delay: 3.4s;
+    animation-delay: 1.8s;
   }
   h2 span:nth-child(14) {
-    animation-delay: 3.6s;
+    animation-delay: 1.9s;
   }
   h2 span:nth-child(15) {
-    animation-delay: 3.8s;
+    animation-delay: 2s;
   }
 
   /* adicione mais regras para cada letra */
@@ -173,6 +173,7 @@ export const CodeItem = styled.pre`
   width: 24rem;
   align-self: flex-start;
   transition: 1s !important;
+  transition-delay: 2s !important;
 
   @media (max-width: 1450px) {
     width: 18rem;

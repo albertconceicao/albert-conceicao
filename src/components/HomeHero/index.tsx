@@ -38,7 +38,7 @@ export function HomeHero() {
             <span className="purple">Infos </span>
             {'\u007B'}
             <div>
-              Idade: <span className="blue">25,</span>
+              Idade: <span className="blue">24,</span>
             </div>
             <div>
               Profissão: <span className="blue">Desenvolvedor de Software</span>
