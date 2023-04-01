@@ -48,7 +48,11 @@ export default function Home({ projects }: HomeProps) {
         <meta name="twitter:image:src" content="/ogimage.jpg" />
         <meta
           property="og:description"
-          content="Sou desenvolvedor Front-end e aqui apresento alguns projetos desenvolvidos por mim!"
+          content="Sou desenvolvedor Front-end e aqui apresento alguns projetos desenvolvidos por mim, sinta-se à vontade para conferir e solicitar o seu serviço também!"
+        />
+        <meta
+          name="keywords"
+          content="Albert Conceição, albert conceicao, albertconceicao, albertconceição, front end developer, desenvolvedor front end, programador, desenvolvedor de sites, criador de sites, criar um site, criar landing pages, landing pages, desenvolvedor de software, software"
         />
       </Head>
       <Header />

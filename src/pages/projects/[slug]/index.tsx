@@ -38,6 +38,10 @@ export default function Project({ project }: ProjectProps) {
         <meta name="twitter:image" content={project.thumbnail} />
         <meta name="twitter:image:src" content={project.thumbnail} />
         <meta property="og:description" content={project.description} />
+        <meta
+          name="keywords"
+          content="Albert Conceição, albert conceicao, albertconceicao, albertconceição, front end developer, desenvolvedor front end, programador, desenvolvedor de sites, criador de sites, criar um site, criar landing pages, landing pages, desenvolvedor de software, software"
+        />
       </Head>
       <ProjectBanner
         title={project.title}

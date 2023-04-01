@@ -36,6 +36,10 @@ export default function Projects({ projects }: ProjectProps) {
           property="og:description"
           content="Aqui você pode encontrar os projetos desenvolvidos até o momento e visitá-los."
         />
+        <meta
+          name="keywords"
+          content="Albert Conceição, albert conceicao, albertconceicao, albertconceição, front end developer, desenvolvedor front end, programador, desenvolvedor de sites, criador de sites, criar um site, criar landing pages, landing pages, desenvolvedor de software, software"
+        />
       </Head>
       <Header />
 
