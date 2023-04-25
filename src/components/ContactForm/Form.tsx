@@ -15,7 +15,7 @@ export function Form() {
     Nome: name,
     Email: email,
     Mensagem: message,
-    _subject: 'Contato via Site',
+    _subject: 'Contato via Portfólio',
     _template: 'box',
     Data_E_Hora: `${actualDate} - ${actualHour}`
   };
